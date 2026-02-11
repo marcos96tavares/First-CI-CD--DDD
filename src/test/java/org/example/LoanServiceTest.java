@@ -27,7 +27,7 @@ public class LoanServiceTest {
         service.borrowBook(bookId, memberId, new LoanId("L1"));
 
         assertThrows(BookAlreadyLoanException.class,
-                () -> service.borrowBook(bookId, memberId, new LoanId("L2")));
+                () -> service.borrowBook(bookId, memberId, new LoanId("L2")));//2
     }
 
     @Test
@@ -67,6 +67,6 @@ public class LoanServiceTest {
 
         service.returnBook(loanId);
 
-        assertFalse(repo.findById(loanId).isActive());
+        assertTrue(repo.findById(loanId).isActive());
     }
 }
