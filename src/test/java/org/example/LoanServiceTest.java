@@ -9,16 +9,15 @@ import org.example.ojects.BookId;
 import org.example.ojects.LoanId;
 import org.example.ojects.MemberId;
 import org.example.repository.InMemoryLoanRepository;
-
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testng.Assert.assertThrows;
 
-class LoanServiceTest {
+public class LoanServiceTest {
 
-    @org.testng.annotations.Test
-    void borrowingLoanedBook_throwsException() {
+    @Test
+    public void borrowingLoanedBook_throwsException() {
         InMemoryLoanRepository repo = new InMemoryLoanRepository();
         LoanService service = new LoanService(repo);
 
@@ -31,8 +30,8 @@ class LoanServiceTest {
                 () -> service.borrowBook(bookId, memberId, new LoanId("L2")));
     }
 
-    @org.junit.jupiter.api.Test
-    void memberCannotHaveMoreThanFiveActiveLoans() {
+    @Test
+    public void memberCannotHaveMoreThanFiveActiveLoans() {
         InMemoryLoanRepository repo = new InMemoryLoanRepository();
         LoanService service = new LoanService(repo);
 
@@ -53,8 +52,8 @@ class LoanServiceTest {
                         new LoanId("L6")));
     }
 
-    @org.junit.jupiter.api.Test
-    void returningBook_closesLoan() {
+    @Test
+    public void returningBook_closesLoan() {
         InMemoryLoanRepository repo = new InMemoryLoanRepository();
         LoanService service = new LoanService(repo);
 
