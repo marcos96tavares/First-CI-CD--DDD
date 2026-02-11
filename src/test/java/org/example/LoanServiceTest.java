@@ -67,6 +67,6 @@ public class LoanServiceTest {
 
         service.returnBook(loanId);
 
-        assertTrue(repo.findById(loanId).isActive());
+        assertFalse(repo.findById(loanId).isActive());
     }
 }
