@@ -9,10 +9,10 @@ import org.example.ojects.BookId;
 import org.example.ojects.LoanId;
 import org.example.ojects.MemberId;
 import org.example.repository.InMemoryLoanRepository;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.testng.Assert.assertThrows;
+
 
 public class LoanServiceTest {
 
